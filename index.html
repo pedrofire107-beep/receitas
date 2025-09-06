@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Meu Site de Receitas</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: linear-gradient(to bottom, #bde5c7, #ffffff);
+    transition: background 0.5s;
+}
+h1 {
+    text-align: center;
+    color: #4CAF50;
+    margin-top: 20px;
+    transition: color 0.5s;
+}
+/* Página inicial */
+.initial-cards {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px;
+}
+.initial-card {
+    flex: 1;
+    margin: 5px;
+    padding: 40px 20px;
+    background: #f9f9f9;
+    border: 1px solid #000;
+    border-radius: 25px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.initial-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+/* Sessões */
+.section {
+    padding: 80px 40px;
+}
+.section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+/* Cards de receitas */
+.recipe-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+.recipe-card {
+    flex: 1;
+    min-width: 250px;
+    margin: 10px;
+    padding: 20px;
+    background: #f9f9f9;
+    border: 1px solid #000;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 1s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.recipe-card:hover {
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+.recipe-card h3 {
+    margin-top: 0;
+}
+.recipe-card ul, .recipe-card ol {
+    margin: 10px 0 0 20px;
+}
+</style>
+</head>
+<body>
+<h1>Meu Site de Receitas</h1>
+
+<!-- Página inicial -->
+<div class="initial-cards">
+  <div class="initial-card" data-target="sobremesas">Sobremesas</div>
+  <div class="initial-card" data-target="pratos-principais">Pratos Principais</div>
+  <div class="initial-card" data-target="molhos-caseiros">Molhos Caseiros</div>
+  <div class="initial-card" data-target="sugestoes">Sugestões</div>
+  <div class="initial-card"></div>
+  <div class="initial-card"></div>
+</div>
+
+<script>
+  // Cards iniciais levam às seções com scroll suave
+  const initialCards = document.querySelectorAll('.initial-card[data-target]');
+  initialCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const targetId = card.getAttribute('data-target');
+      const section = document.getElementById(targetId);
+      if (section) {
+        section.scrollIntoView({behavior: "smooth"});
+      }
+    });
+  });
+</script>
+
+<!-- Sessão Sobremesas -->
+<div id="sobremesas" class="section">
+<h2>Sobremesas</h2>
+<!-- Sobremesas 10 receitas -->
+<div class="recipe-row">
+<div class="recipe-card" data-color="#e6ccff" data-font="#6600cc">
+<h3>Torta de Amêndoas</h3>
+<h4>Ingredientes (1 / 2 / 4 pessoas):</h4>
+<ul>
+<li>Amêndoas: 20g / 40g / 80g</li>
+<li>Farinha: 50g / 100g / 200g</li>
+<li>Açúcar: 15g / 30g / 60g</li>
+<li>Ovo: 1 / 2 / 4</li>
+</ul>
+<h4>Modo de preparo:</h4>
+<ol>
+<li>Misture farinha, açúcar, ovos e amêndoas.</li>
+<li>Asse 180°C por 25 min.</li>
+</ol>
+</div>
+
+<div class="recipe-card" data-color="#ffd9b3" data-font="#ff6600">
+<h3>Pudim de Coco Queimado</h3>
+<h4>Ingredientes (1 / 2 / 4 pessoas):</h4>
+<ul>
+<li>Leite: 50ml / 100ml / 200ml</li>
+<li>Coco ralado: 10g / 20g / 40g</li>
+<li>Açúcar: 15g / 30g / 60g</li>
+<li>Ovo: 1 / 2 / 4</li>
+</ul>
+<h4>Modo de preparo:</h4>
+<ol>
+<li>Misture todos os ingredientes e despeje na forma caramelizada.</li>
+<li>Asse em banho-maria 30 min.</li>
+</ol>
+</div>
+
+<div class="recipe-card" data-color="#ccffcc" data-font="#006600">
+<h3>Mousse de Manga</h3>
+<h4>Ingredientes (1 / 2 / 4 pessoas):</h4>
+<ul>
+<li>Manga: 30g / 60g / 120g</li>
+<li>Creme de leite: 50ml / 100ml / 200ml</li>
+<li>Açúcar: 10g / 20g / 40g</li>
+</ul>
+<h4>Modo de preparo:</h4>
+<ol>
+<li>Bata manga com açúcar, adicione creme de leite e leve à geladeira.</li>
+</ol>
+</div>
+</div>
+
+<div class="recipe-row">
+<div class="recipe-card" data-color="#e6f2ff" data-font="#0066cc">
+<h3>Creme de Amora</h3>
+<h4>Ingredientes (1 / 2 / 4 pessoas):</h4>
+<ul>
+<li>Amoras: 30g / 60g / 120g</li>
+<li>Creme de leite: 50ml / 100ml / 200ml</li>
+<li>Açúcar: 10g / 20g / 40g</li>
+</ul>
+<h4>Modo de preparo:</h4>
+<ol>
+<li>Misture amoras com açúcar.</li>
+<li>Incorpore creme de leite e leve à geladeira 2h.</li>
+</ol>
+</div>
+
+<div class="recipe-card" data-color="#ffccff" data-font="#660066">
+<h3>Torta de Frutas Tropicais</h3>
+<h4>Ingredientes (1 / 2 / 4 pessoas):</h4>
+<ul>
+<li>Farinha: 50g / 100g / 200g</li>
+<li>Açúcar: 15g / 30g / 60g</li>
+<li>Manteiga: 20g / 40g / 80g</li>
+<li>Frutas: 30g / 60g / 120g</li>
+</ul>
+<h4>Modo de preparo:</h4>
+<ol>
+<li>Prepare a base com farinha, açúcar e manteiga.</li>
+<li>Asse 15 min, recheie com frutas e leve à geladeira.</li>
+</ol>
+</div>
+
+<div class="recipe-card" data-color="#ffe6cc" data-font="#cc6600">
+<h3>Pudim de Pêssego</h3>
+<h4>Ingredientes (1 / 2 / 4 pessoas):</h4>
+<ul>
+<li>Pêssegos: 30g / 60g / 120g</li>
+<li>Leite: 50ml / 100ml / 200ml</li>
+<li>Açúcar: 10g / 20g / 40g</li>
+<li>Gelatina: 1g / 2g / 4g</li>
+</ul>
+<h4>Modo de preparo:</h4>
+<ol>
+<li>Misture todos os ingredientes e leve à geladeira 3h.</li>
+</ol>
+</div>
+</div>
+
+<div class="recipe-row">
+<div class="recipe-card" data-color="#ccffe6" data-font="#339966">
+<h3>Mousse de Maracujá com Gengibre</h3>
+<h4>Ingredientes (1 / 2 / 4 pessoas):</h4>
+<ul>
+<li>Polpa de maracujá: 30g / 60g / 120g</li>
+<li>Creme de leite: 50ml / 100ml / 200ml</li>
+<li>Açúcar: 10g / 20g / 40g</li>
+<li>Gengibre ralado: 1g / 2g / 4g</li>
+</ul>
+<h4>Modo de preparo:</h4>
+<ol>
+<li>Bata todos os ingredientes e leve à geladeira 2h.</li>
+</ol>
+</div>
+
+<div class="recipe-card" data-color="#ffcccc" data-font="#cc0000">
+<h3>Pavê de Maracujá e Chocolate Branco</h3>
+<h4>Ingredientes (1 / 2 / 4 pessoas):</h4>
+<ul>
+<li>Chocolate branco: 30g / 60g / 120g</li>
+<li>Creme de leite: 50ml / 100ml / 200ml</li>
+<li>Polpa de maracujá: 30g / 60g / 120g</li>
+</ul>
+<h4>Modo de preparo:</h4>
+<ol>
+<li>Monte camadas de chocolate e maracujá.</li>
+<li>Leve à geladeira 2h antes de servir.</li>
+</ol>
+</div>
+
+<div class="recipe-card" data-color="#ffffcc" data-font="#999900">
+<h3>Cheesecake de Frutas Vermelhas</h3>
+<h4>Ingredientes (1 / 2 / 4 pessoas):</h4>
+<ul>
+<li>Queijo cream cheese: 50g / 100g / 200g</li>
+<li>Farinha: 20g / 40g / 80g</li>
+<li>Açúcar: 15g / 30g / 60g</li>
+<li>Frutas vermelhas: 20g / 40g / 80g</li>
+</ul>
+<h4>Modo de preparo:</h4>
+<ol>
+<li>Misture cream cheese, açúcar e farinha.</li>
+<li>Asse 25 min, decore com frutas.</li>
+</ol>
+</div>
+</div>
+</div>
+
+<!-- Sessão Pratos Principais Completa -->
+<div id="pratos-principais" class="section">
+<h2>Pratos Principais</h2>
+<div class="recipe-row">
+<div class="recipe-card" data-color="#ffcccc" data-font="#cc0000">
+<h3>Frango ao Curry</h3>
+<h4>Ingredientes (1 / 2 / 4 pessoas):</h4>
+<ul>
+<li>Peito de frango: 100g / 200g / 400g</li>
+<li>Creme de leite: 50ml / 100ml / 200ml</li>
+<li>Curry: 1g / 2g / 4g</li>
+<li>Cebola: 20g / 40g / 80g</li>
+</ul>
+<h4>Modo de preparo:</h4>
+<ol>
+<li>Refogue cebola, adicione frango e curry.</li>
+<li>Adicione creme de leite e cozinhe 15 min.</li>
+</ol>
+</div>
+
+<div class="recipe-card" data-color="#ccffcc" data-font="#006600">
+<h3>Risoto de Abóbora</h3>
+<h4>Ingredientes (1 / 2 / 4 pessoas):</h4>
+<ul>
+<li>Arroz arbóreo: 50g / 100g / 200g</li>
+<li>Abóbora: 50g / 100g / 200g</li>
+<li>Cebola: 10g / 20g / 40g</li>
+<li>Caldo de legumes: 100ml / 200ml / 400ml</li>
+</ul>
+<h4>Modo de preparo:</h4>
+<ol>
+<li>Refogue cebola, junte abóbora e arroz.</li>
+<li>Adicione caldo aos poucos até cozinhar.</li>
+</ol>
+</div>
+</div>
+
+<div class="recipe-row">
+<div class="recipe-card" data-color="#ffe6cc" data-font="#cc6600">
+<h3>Espaguete à Carbonara</h3>
+<h4>Ingredientes (1 / 2 / 4 pessoas):</h4>
+<ul>
+<li>Espaguete: 80g / 160g / 320g</li>
+<li>Bacon: 30g / 60g / 120g</li>
+<li>Ovo: 1 / 2 / 4</li>
+<li>Queijo parmesão: 10g / 20g / 40g</li>
+</ul>
+<h4>Modo de preparo:</h4>
+<ol>
+<li>Cozinhe o macarrão, refogue bacon.</li>
+<li>Misture ovos batidos e parmesão fora do fogo.</li>
+</ol>
+</div>
+
+<div class="recipe-card" data-color="#ccffff" data-font="#006666">
+<h3>Peixe Assado com Ervas</h3>
+<h4>Ingredientes (1 / 2 / 4 pessoas):</h4>
+<ul>
+<li>Filé de peixe: 100g / 200g / 400g</li>
+<li>Limão: 1 / 2 / 4</li>
+<li>Ervas finas: 1g / 2g / 4g</li>
+</ul>
+<h4>Modo de preparo:</h4>
+<ol>
+<li>Tempere o peixe e asse 20 min a 180°C.</li>
+</ol>
+</div>
+</div>
+
+<div class="recipe-row">
+<div class="recipe-card" data-color="#ffffcc" data-font="#999900">
+<h3>Estrogonofe de Carne</h3>
+<h4>Ingredientes (1 / 2 / 4 pessoas):</h4>
+<ul>
+<li>Carne bovina: 100g / 200g / 400g</li>
+<li>Creme de leite: 50ml / 100ml / 200ml</li>
+<li>Molho de tomate: 20ml / 40ml / 80ml</li>
+<li>Cebola: 10g / 20g / 40g</li>
+</ul>
+<h4>Modo de preparo:</h4>
+<ol>
+<li>Refogue cebola, adicione carne e molho de tomate.</li>
+<li>Finalize com creme de leite e cozinhe 10 min.</li>
+</ol>
+</div>
+
+<div class="recipe-card" data-color="#ffccff" data-font="#660066">
+<h3>Quiche de Espinafre</h3>
+<h4>Ingredientes (1 / 2 / 4 pessoas):</h4>
+<ul>
+<li>Espinafre: 30g / 60g / 120g</li>
+<li>Ovos: 1 / 2 / 4</li>
+<li>Creme de leite: 30ml / 60ml / 120ml</li>
+<li>Queijo: 20g / 40g / 80g</li>
+</ul>
+<h4>Modo de preparo:</h4>
+<ol>
+<li>Prepare a massa, recheie com espinafre e creme.</li>
+<li>Asse 25 min a 180°C.</li>
+</ol>
+</div>
+</div>
+
+<div class="recipe-row">
+<div class="recipe-card" data-color="#ffe6f0" data-font="#cc3399">
+<h3>Almôndegas ao Molho</h3>
+<h4>Ingredientes (1 / 2 / 4 pessoas):</h4>
+<ul>
+<li>Carne moída: 100g / 200g / 400g</li>
+<li>Pão: 20g / 40g / 80g</li>
+<li>Molho de tomate: 50ml / 100ml / 200ml</li>
+</ul>
+<h4>Modo de preparo:</h4>
+<ol>
+<li>Misture carne e pão, modele almôndegas.</li>
+<li>Cozinhe no molho de tomate 20 min.</li>
+</ol>
+</div>
+
+<div class="recipe-card" data-color="#ccff99" data-font="#339900">
+<h3>Panqueca de Frango</h3>
+<h4>Ingredientes (1 / 2 / 4 pessoas):</h4>
+<ul>
+<li>Frango desfiado: 50g / 100g / 200g</li>
+<li>Massa de panqueca: 50g / 100g / 200g</li>
+<li>Molho branco: 30ml / 60ml / 120ml</li>
+</ul>
+<h4>Modo de preparo:</h4>
+<ol>
+<li>Recheie panquecas com frango e molho.</li>
+<li>Asse 15 min a 180°C.</li>
+</ol>
+</div>
+</div>
+
+<div class="recipe-row">
+<div class="recipe-card" data-color="#ffebcc" data-font="#cc6600">
+<h3>Salada de Quinoa com Legumes</h3>
+<h4>Ingredientes (1 / 2 / 4 pessoas):</h4>
+<ul>
+<li>Quinoa: 50g / 100g / 200g</li>
+<li>Legumes variados: 50g / 100g / 200g</li>
+<li>Azeite: 5ml / 10ml / 20ml</li>
+</ul>
+<h4>Modo de preparo:</h4>
+<ol>
+<li>Cozinhe a quinoa e misture com legumes e azeite.</li>
+</ol>
+</div>
+
+<div class="recipe-card" data-color="#ccf2ff" data-font="#006699">
+<h3>Peito de Peru ao Forno</h3>
+<h4>Ingredientes (1 / 2 / 4 pessoas):</h4>
+<ul>
+<li>Peito de peru: 100g / 200g / 400g</li>
+<li>Ervas: 1g / 2g / 4g</li>
+<li>Limão: 1 / 2 / 4</li>
+</ul>
+<h4>Modo de preparo:</h4>
+<ol>
+<li>Tempere e asse 25 min a 180°C.</li>
+</ol>
+</div>
+</div>
+
+<div class="recipe-row">
+<div class="recipe-card" data-color="#ffcccc" data-font="#990000">
+<h3>Escondidinho de Carne Seca</h3>
+<h4>Ingredientes (1 / 2 / 4 pessoas):</h4>
+<ul>
+<li>Carne seca: 50g / 100g / 200g</li>
+<li>Purê de mandioca: 50g / 100g / 200g</li>
+<li>Queijo: 20g / 40g / 80g</li>
+</ul>
+<h4>Modo de preparo:</h4>
+<ol>
+<li>Faça camadas de carne seca e purê, cubra com queijo.</li>
+<li>Asse 20 min a 180°C.</li>
+</ol>
+</div>
+
+<div class="recipe-card" data-color="#ffffcc" data-font="#999900">
+<h3>Moqueca de Peixe</h3>
+<h4>Ingredientes (1 / 2 / 4 pessoas):</h4>
+<ul>
+<li>Peixe: 100g / 200g / 400g</li>
+<li>Leite de coco: 50ml / 100ml / 200ml</li>
+<li>Tomate: 20g / 40g / 80g</li>
+<li>Pimentão: 10g / 20g / 40g</li>
+</ul>
+<h4>Modo de preparo:</h4>
+<ol>
+<li>Refogue legumes, adicione peixe e leite de coco.</li>
+<li>Cozinhe 20 min.</li>
+</ol>
+</div>
+<!-- Sessão Molhos Caseiros -->
+<div id="molhos-caseiros" class="section">
+  <h2>Molhos Caseiros</h2>
+
+  <div class="recipe-row">
+    <div class="recipe-card" data-color="#ffebcc" data-font="#cc6600">
+      <h3>Molho de Tomate</h3>
+      <h4>Ingredientes (1 / 2 / 4 pessoas):</h4>
+      <ul>
+        <li>Tomates: 100g / 200g / 400g</li>
+        <li>Alho: 1 dente / 2 dentes / 4 dentes</li>
+        <li>Cebola: 20g / 40g / 80g</li>
+        <li>Azeite: 5ml / 10ml / 20ml</li>
+      </ul>
+      <h4>Modo de preparo:</h4>
+      <ol>
+        <li>Refogue alho e cebola no azeite.</li>
+        <li>Adicione tomates picados e cozinhe 15 min.</li>
+      </ol>
+    </div>
+
+    <div class="recipe-card" data-color="#ccffcc" data-font="#006600">
+      <h3>Molho Branco (Bechamel)</h3>
+      <h4>Ingredientes (1 / 2 / 4 pessoas):</h4>
+      <ul>
+        <li>Manteiga: 10g / 20g / 40g</li>
+        <li>Farinha de trigo: 10g / 20g / 40g</li>
+        <li>Leite: 50ml / 100ml / 200ml</li>
+        <li>Noz-moscada: 1 pitada / 2 pitadas / 4 pitadas</li>
+      </ul>
+      <h4>Modo de preparo:</h4>
+      <ol>
+        <li>Derreta manteiga, adicione farinha e cozinhe 2 min.</li>
+        <li>Acrescente leite aos poucos, mexendo até engrossar, finalize com noz-moscada.</li>
+      </ol>
+    </div>
+
+    <div class="recipe-card" data-color="#ffe6cc" data-font="#cc6600">
+      <h3>Molho Pesto</h3>
+      <h4>Ingredientes (1 / 2 / 4 pessoas):</h4>
+      <ul>
+        <li>Manjericão fresco: 10g / 20g / 40g</li>
+        <li>Alho: 1 dente / 2 dentes / 4 dentes</li>
+        <li>Azeite: 20ml / 40ml / 80ml</li>
+        <li>Queijo parmesão: 10g / 20g / 40g</li>
+      </ul>
+      <h4>Modo de preparo:</h4>
+      <ol>
+        <li>Bata todos os ingredientes no processador até formar pasta.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="recipe-row">
+    <div class="recipe-card" data-color="#ccf2ff" data-font="#006699">
+      <h3>Molho Barbecue</h3>
+      <h4>Ingredientes (1 / 2 / 4 pessoas):</h4>
+      <ul>
+        <li>Ketchup: 20g / 40g / 80g</li>
+        <li>Vinagre: 5ml / 10ml / 20ml</li>
+        <li>Molho inglês: 5ml / 10ml / 20ml</li>
+        <li>Açúcar mascavo: 5g / 10g / 20g</li>
+      </ul>
+      <h4>Modo de preparo:</h4>
+      <ol>
+        <li>Misture todos os ingredientes e cozinhe 5 min em fogo baixo.</li>
+      </ol>
+    </div>
+
+    <div class="recipe-card" data-color="#ffcccc" data-font="#990000">
+      <h3>Molho de Mostarda e Mel</h3>
+      <h4>Ingredientes (1 / 2 / 4 pessoas):</h4>
+      <ul>
+        <li>Mostarda: 10g / 20g / 40g</li>
+        <li>Mel: 10g / 20g / 40g</li>
+        <li>Azeite: 5ml / 10ml / 20ml</li>
+        <li>Sal e pimenta: a gosto</li>
+      </ul>
+      <h4>Modo de preparo:</h4>
+      <ol>
+        <li>Misture todos os ingredientes até formar molho homogêneo.</li>
+      </ol>
+    </div>
+    <!-- Sessão Sugestões -->
+<div id="sugestoes" class="section">
+  <h2>Sugestões</h2>
+  <div class="recipe-row">
+    <div class="recipe-card" data-color="#fff0e6" data-font="#cc6600">
+      <h3>Envie suas sugestões</h3>
+      <p>Mandem sugestão de receitas para colocar no site, agradeço por usar meu site, irei colocar todas as sugestões.</p>
+      <p>Email: <a href="mailto:sugestoes591@gmail.com">sugestoes591@gmail.com</a></p>
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+</div>
+</div>
+
+<script>
+const recipeCards = document.querySelectorAll('.recipe-card');
+
+recipeCards.forEach(card => {
+    card.addEventListener('click', () => {
+        document.body.style.background = card.getAttribute('data-color');
+        document.querySelector('h1').style.color = card.getAttribute('data-font');
+    });
+});
+</script>
+
+</body>
+</html>
